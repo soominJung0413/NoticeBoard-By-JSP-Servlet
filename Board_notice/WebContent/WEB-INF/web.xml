@@ -9,4 +9,53 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- FrontServlet -->
+  <servlet>
+  	<servlet-name>FrontServlet</servlet-name>
+  	<servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
+  	<init-param>
+  		<param-name>configFile</param-name>
+  		<param-value>
+  			/WEB-INF/commandHandlerURI.properties
+  		</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>FrontServlet</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Listener -->
+  <listener>
+  	<listener-class>jdbc.DBCPInitListener</listener-class>
+  </listener>
+  
+  <!-- EncodingFilter -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>util.CharacterEncodingFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  <context-param>
+  	<param-name>poolConfig</param-name>
+  		<param-value>
+  			jdbcdriver=com.mysql.cj.jdbc.Driver
+  			jdbcUrl=jdbc:mysql://localhost:3306/board?serverTimezone=Asia/Seoul&amp;characterEncoding=utf8&amp;useSSL=false
+  			dbUser=root
+  			dbPass=doli0413@
+  			validationQuery=select 1
+  			minIdle=3
+  			maxTotal=30
+  			poolName=board
+  		</param-value>
+  </context-param>
 </web-app>
