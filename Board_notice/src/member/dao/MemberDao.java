@@ -50,4 +50,14 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 	}
+	
+	public void update (Connection con, Member member) throws SQLException {
+		final String sql = "UPDATE member SET name = ?, password = ? WHERE memberid = ?";
+		try(PreparedStatement pstmt = con.prepareStatement(sql)){
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getPassword());
+			pstmt.setString(3, member.getMemberid());
+			pstmt.executeUpdate();
+		}
+	}
 }

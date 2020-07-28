@@ -16,6 +16,10 @@ public class Member {
 		this.password = password;
 		this.regdate = regdate;
 	}
+	
+	public void changePassword(String newPassword) {
+		this.password = newPassword;
+	}
 
 	public String getMemberid() {
 		return memberid;

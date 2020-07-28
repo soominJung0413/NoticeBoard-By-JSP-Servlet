@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>  
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    <%@taglib prefix="ch" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,17 +12,20 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<title>회원제 게시판 예제</title>
+<title>비밀번호 변경 폼</title>
 </head>
 <body>
-	<ch:isLogin>
-		${authUser.id }님, 안녕하세요 :)
-		<a href="logout.do">[로그아웃하기]</a>
-		<a href="changePwd.do">[암호변경하기]</a>
-	</ch:isLogin>
-	<ch:notLogin>
-		<a href="join.do">[회원가입하기]</a>
-		<a href="login.do">[로그인하기]</a>
-	</ch:notLogin>
+	<form action="changePwd.do" method="post">
+		<p>
+		현재암호 : <br /> <input type="password" name="curPwd" id="" />
+		<c:if test="${errors.curPwd}">현재 암호를 입력하세요.</c:if>
+		<c:if test="${errors.badCurPwd}">현재 암호가 일치하지 않습니다.</c:if>
+		</p>
+		<p>		
+		새 암호: <br /> <input type="password" name="newPwd" id="" />
+		<c:if test="${errors.newPwd}">새 암호를 입력하세요.</c:if>
+		</p>
+		<input type="submit" value="암호 변경" />
+	</form>
 </body>
 </html>
