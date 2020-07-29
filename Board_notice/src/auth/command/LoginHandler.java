@@ -1,6 +1,7 @@
 package auth.command;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,7 @@ public class LoginHandler implements CommandHandler{
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int [] arr = new int[5];
 		if(request.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(request,response);
 		}else if(request.getMethod().equalsIgnoreCase("POST")) {

@@ -33,6 +33,10 @@
   	<listener-class>jdbc.DBCPInitListener</listener-class>
   </listener>
   
+  <listener>
+  	<listener-class>util.AddContextPathListener</listener-class>
+  </listener>
+  
   <!-- EncodingFilter -->
   <filter>
   	<filter-name>encodingFilter</filter-name>
@@ -53,6 +57,7 @@
   <filter-mapping>
   	<filter-name>LoginCheckFilter</filter-name>
   	<url-pattern>/changePwd.do</url-pattern>
+  	<url-pattern>/article/write.do</url-pattern>
   </filter-mapping>
   
   

@@ -21,7 +21,7 @@ public class LoginService {
 			if(!member.matchPassword(password)) {
 				throw new LoginFailException();
 			}
-			return new User(member.getMemberid(), member.getName());
+			return new User(member.getMemberid(), member.getPassword(), member.getName());
 		}catch(SQLException e) {
 			throw new RuntimeException(e);
 		}
