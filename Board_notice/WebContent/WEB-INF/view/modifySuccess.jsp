@@ -12,23 +12,12 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<title>게시글 쓰기</title>
+<title>게시글 수정</title>
 </head>
 <body>
-	<form action="write.do" method="post">
-	<div class="form-group">
-		<label for="title">제목</label>
-		 <input type="text" name="title" value="${param.title}" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-		 <c:if test="${errors.title}">
-		 <small id="emailHelp" class="form-text text-muted">제목을 입력하세요</small>
-		 </c:if>
-		<br />
-		<div class="form-group">
-		<label for="content">내용</label>
-		  <textarea class="form-control" id="content" rows="3">${param.content}</textarea>
-		</div>
-		<input type="submit" class="btn btn-info" value="새 글 등록 :)" />
-	</div>
-	</form>
+	게시글을 수정했습니다.
+	<br />
+	<a href="${ctxPath}/article/list.do">[게시글 목록]</a>
+	<a href="${ctxPath }/artice/read.do?no=${modReq.articleNumber}">[게시글 내용]</a>
 </body>
 </html>

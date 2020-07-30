@@ -17,16 +17,20 @@
 <body>
 
 	<div class="container">
-	<table border="1" width="100%">
+	
+	<table class="table">
+		<thead class="thead-dark">
 		<tr>
-			<td colspan="4"> <a href="write.do">[게시글 쓰기]</a> </td>
+			<td colspan="4"> <a class="badge badge-warning" href="write.do">게시글 쓰기</a> </td>
 		</tr>
 		<tr>
-			<td>번호</td>
-			<td>제목</td>
-			<td>작성자</td>
-			<td>조회수</td>
+			<th scope="col">번호</th>
+			<th scope="col">제목</th>
+			<th scope="col">작성자</th>
+			<th scope="col">조회수</th>
 		</tr>
+		  </thead>
+		  <tbody>
 		<c:if test="${articlePage.hasNoArticles()}">
 			<tr>
 				<td colspan="4">게시글이 없습니다.</td>
@@ -45,8 +49,25 @@
 				<td>${article.readCount}</td>
 			</tr>
 		</c:forEach>
-		
+		</tbody>
+		</table>
 		<c:if test="${articlePage.hasArticles() }">
+		<nav aria-label="Page navigation example">
+  		<ul class="pagination">
+  		<c:if test="${articlePage.startPage > 5}">
+    	<li class="page-item"><a class="page-link" href="list.do?pageNo=${articlePage.startPage -5}">Previous</a></li>
+    	</c:if>
+    	<c:forEach var="pNo" begin="${articlePage.startPage}" end="${articlePage.endPage}">
+    	<li class="page-item"><a class="page-link" href="list.do?pageNo=${pNo}">${pNo}</a></li>
+    	</c:forEach>
+		<c:if test="${articlePage.endPage < articlePage.totalPages}">
+    	<li class="page-item"><a class="page-link" href="list.do?pageNo=${articlePage.startPage+5}">Next</a></li>
+    	</c:if>
+  		</ul>
+		</nav>
+		</c:if>
+		
+		<%-- <c:if test="${articlePage.hasArticles() }">
 			<tr>
 				<td colspan="4">
 					<c:if test="${articlePage.startPage > 5}">
@@ -60,8 +81,7 @@
 					</c:if>
 				</td>
 			</tr>
-		</c:if>
-	</table>
+		</c:if> --%>
 	</div>
 </body>
 </html>

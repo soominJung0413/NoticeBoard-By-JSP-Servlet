@@ -16,25 +16,41 @@
 </head>
 <body>
 	<form action="join.do" method="post">
-		<p>
-		아이디 : <br /> <input type="text" name="id" value="${param.id}" />
-		<c:if test="${errors.id}">ID를 입력하세요</c:if>
-		<c:if test="${errrors.duplicateId}">이미 사용중인 아이디 입니다.</c:if>
-		</p>
-		<p>
-		이름: <br /> <input type="text" name="name" value="${param.name}" />
-		<c:if test="${errors.name}">이름을 입력하세요</c:if>
-		</p>
-		<p>
-		암호 : <br /> <input type="password" name="password"  />
-		<c:if test="${errors.password}">암호를 입력하세요</c:if>
-		</p>
-		<p>
-		확인 : <br />	<input type="password" name="confirmPassword"  />
-		<c:if test="${errors.confirmPassword}">확인을 입력하세요</c:if>
-		<c:if test="${errors.notMatch}">암호와 확인이 일치하지 않습니다.</c:if>
-		</p>
-		<input type="submit" value="가입" />
+		<div class="form-group">
+		<label for="userid">아이디</label>
+		<input type="text" name="id" value="${param.id}" class="form-control form-control-sm" id="userid" aria-describedby="emailHelp"/>
+		<c:if test="${errors.id}">
+		<small id="useridHelp" class="form-text text-muted">ID를 입력하세요</small>
+		</c:if>
+		<c:if test="${errrors.duplicateId}">
+		<small id="useridHelp" class="form-text text-muted">이미 사용 중인 아이디 입니다.</small>
+		</c:if>
+		</div>
+		<div class="form-group">
+		<label for="username">이름</label>
+		<input type="text" name="name" value="${param.name}" class="form-control form-control-sm" id="username" aria-describedby="emailHelp"/>
+		<c:if test="${errors.name}">
+		<small id="usernameHelp" class="form-text text-muted">이름을 입력하세요.</small>
+		</c:if>
+		</div>
+		<div class="form-group">
+		<label for="userPassword">암호</label> 
+		<input type="password" name="password" class="form-control form-control-sm" id="userPassword" aria-describedby="emailHelp"  />
+		<c:if test="${errors.password}">
+		<small id="userPasswordHelp" class="form-text text-muted">암호를 입력하세요.</small>
+		</c:if>
+		</div>
+		<div class="form-group">
+			<label for="userConfirmPassword">암호 확인</label> 
+		<input type="password" name="confirmPassword" class="form-control form-control-sm" id="userConfirmPassword" aria-describedby="emailHelp"    />
+		<c:if test="${errors.confirmPassword}">
+		<small id="userConfirmPasswordHelp" class="form-text text-muted">확인을 입력하세요.</small>
+		</c:if>
+		<c:if test="${errors.notMatch}">
+		<small id="userConfirmPasswordHelp" class="form-text text-muted">암호와 확인이 일치하지 않습니다.</small>
+		</c:if>
+		</div>
+		<input type="submit" class="btn btn-primary" value="가입" />
 	</form>
 </body>
 </html>

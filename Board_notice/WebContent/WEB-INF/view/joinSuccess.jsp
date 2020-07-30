@@ -15,10 +15,15 @@
 <title>가입 완료</title>
 </head>
 <body>
-	<b>${param.name}</b> 님 회원 가입이 완료되었습니다. :)
-	
-	<p>
-	사용자 아이디 : ${param.id }
-	</p>
+	<div class="container">
+	<div class="card" style="width: 18rem;">
+  <img src="C:\Users\admin\Pictures\Saved Pictures\Hello.jpg" class="card-img-top" alt="이미지 깨짐...">
+  <div class="card-body">
+    <h5 class="card-title">회원 가입이 완료되었습니다. :)</h5>
+    <p class="card-text">${param.name} 님의 계정은 ${param.id } 입니다.</p>
+    <a href="${ctxPath }/login.do" class="btn btn-primary">로그인</a>
+  </div>
+</div>
+</div>
 </body>
 </html>

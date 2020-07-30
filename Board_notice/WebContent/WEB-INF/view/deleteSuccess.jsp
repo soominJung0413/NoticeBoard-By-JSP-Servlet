@@ -12,23 +12,16 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<title>게시글 쓰기</title>
+<title>삭제가 완료 되었습니다.</title>
 </head>
 <body>
-	<form action="write.do" method="post">
-	<div class="form-group">
-		<label for="title">제목</label>
-		 <input type="text" name="title" value="${param.title}" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-		 <c:if test="${errors.title}">
-		 <small id="emailHelp" class="form-text text-muted">제목을 입력하세요</small>
-		 </c:if>
-		<br />
-		<div class="form-group">
-		<label for="content">내용</label>
-		  <textarea class="form-control" id="content" rows="3">${param.content}</textarea>
-		</div>
-		<input type="submit" class="btn btn-info" value="새 글 등록 :)" />
+<div class="container">
+	<div class="row">
+		<div class="col">
+<h2>삭제가 완료되었습니다.</h2>
+	<a class="btn btn-warning btn-sm active" role="button" aria-pressed="true" href="${ctxPath }/article/list.do">게시판 보기</a>
+			</div>
 	</div>
-	</form>
+</div>
 </body>
 </html>

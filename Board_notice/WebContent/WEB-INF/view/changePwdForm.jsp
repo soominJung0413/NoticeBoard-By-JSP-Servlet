@@ -16,16 +16,29 @@
 </head>
 <body>
 	<form action="changePwd.do" method="post">
-		<p>
-		현재암호 : <br /> <input type="password" name="curPwd" id="" />
-		<c:if test="${errors.curPwd}">현재 암호를 입력하세요.</c:if>
-		<c:if test="${errors.badCurPwd}">현재 암호가 일치하지 않습니다.</c:if>
-		</p>
-		<p>		
-		새 암호: <br /> <input type="password" name="newPwd" id="" />
-		<c:if test="${errors.newPwd}">새 암호를 입력하세요.</c:if>
-		</p>
-		<input type="submit" value="암호 변경" />
+	<label for="currentPassword">현재암호</label>
+<input type="password" name="curPwd" id="currentPassword" class="form-control form-control-sm" aria-describedby="passwordHelpBlock">
+<c:if test="${errors.curPwd}">
+<small id="passwordHelpBlock" class="form-text text-muted">
+ 현재 암호를 입력하세요.
+</small>
+</c:if>
+<c:if test="${errors.badCurPwd}">
+<small id="passwordHelpBlock" class="form-text text-muted">
+ 현재 암호가 일치하지 않습니다.
+</small>
+</c:if>
+
+<label for="newPassword">새 암호</label>
+<input type="password" id="newPassword" name="newPwd" class="form-control form-control-sm" aria-describedby="passwordHelpBlock">
+<c:if test="${errors.newPwd}">
+<small id="passwordHelpBlock" class="form-text text-muted">
+  새 암호를 입력하세요.
+</small>
+</c:if>
+	<label>
+		<input type="submit" class="btn btn-primary"  value="암호 변경" />
+	</label>
 	</form>
 </body>
 </html>

@@ -17,10 +17,6 @@ public class ArticleContent {
 		return number;
 	}
 
-	@Override
-	public String toString() {
-		return "ArticleContent [number=" + number + ", content=" + content + "]";
-	}
 	
 	
 }

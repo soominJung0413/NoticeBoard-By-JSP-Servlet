@@ -16,16 +16,29 @@
 <title>회원제 게시판 예제</title>
 </head>
 <body>
+<div class="container">
+<!-- 	<nav class="nav">
+  	<a class="nav-link active" href="join.do">회원 가입</a>
+  	<a class="nav-link" href="#">Link</a>
+  	<a class="nav-link" href="#">Link</a>
+  	<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+	</nav> -->
 	<ch:isLogin>
-		${authUser.id }님, 안녕하세요 :)
-		<a href="logout.do">[로그아웃하기]</a>
-		<a href="changePwd.do">[암호변경하기]</a>
-		<a href="${ctxPath}/article/write.do">[글 작성하기]</a>
-		<a href="${ctxPath }/article/list.do">[게시판 보기]</a>
+		<p class="font-italic">${authUser.id }님, 안녕하세요 :)</p>
+		<hr />
+		<nav class="nav">
+		<a class="nav-link active" href="logout.do">로그아웃</a>
+  		<a class="nav-link" href="changePwd.do">암호변경하기</a>
+  		<a class="nav-link" href="${ctxPath}/article/write.do">작성하기</a>
+  		<a class="nav-link" href="${ctxPath }/article/list.do">게시판 보기</a>
+		</nav>
 	</ch:isLogin>
 	<ch:notLogin>
-		<a href="join.do">[회원가입하기]</a>
-		<a href="login.do">[로그인하기]</a>
+	<nav class="nav">
+  	<a class="nav-link active" href="join.do">회원 가입</a>
+  	<a class="nav-link" href="login.do">로그인</a>
+	</nav>
 	</ch:notLogin>
+	</div>
 </body>
 </html>

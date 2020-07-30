@@ -15,9 +15,23 @@
 <title>게시글 등록</title>
 </head>
 <body>
-	게시글을 등록했습니다.
-	<br />
-	<a href="${ctxPath}/article/list.do" >[게시글 목록 보기]</a>
-	<a href="${ctxPath}/article/read.do?no=${newArticleNo}">[게시글내용보기]</a>
+	<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">게시글을 등록했습니다.</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="${ctxPath}/article/read.do?no=${newArticleNo}">게시글 내용 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="${ctxPath}/article/list.do">게시글 목록<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
 </body>
 </html>
