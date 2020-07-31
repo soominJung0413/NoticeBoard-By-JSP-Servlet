@@ -21,6 +21,8 @@
   		</param-value>
   	</init-param>
   	<load-on-startup>1</load-on-startup>
+  	<!-- 가장 밑에 두자. -->
+  	<multipart-config></multipart-config>
   </servlet>
   
   <servlet-mapping>
@@ -59,6 +61,7 @@
   	<url-pattern>/changePwd.do</url-pattern>
   	<url-pattern>/article/write.do</url-pattern>
   	<url-pattern>/article/modify.do</url-pattern>
+  	<url-pattern>/article/delete.do</url-pattern>
   </filter-mapping>
   
   

@@ -30,7 +30,7 @@ public class WriteArticleService {
 				throw new RuntimeException("fail to insert article");
 			}
 			ArticleContent content = new ArticleContent(savedArticle.getNumber(),
-					req.getContent());
+					req.getContent(), req.getFileName());
 			ArticleContent savedContent = articleContentDao.insert(con, content);
 			if(savedContent == null) {
 				throw new RuntimeException("fail to insert article_content");

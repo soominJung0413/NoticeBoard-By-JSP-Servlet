@@ -11,6 +11,16 @@ import jdbc.JdbcUtil;
 //@Repository
 public class ArticleContentDao {
 	
+	public int updateAtFile (Connection con, int no, String content, String newFileName) throws SQLException {
+		final String sql ="UPDATE article_content SET content =?, file_name =? WHERE article_no = ?";
+		try(PreparedStatement pstmt = con.prepareStatement(sql)){
+			pstmt.setString(1, content);
+			pstmt.setString(2, newFileName);
+			pstmt.setInt(3, no);
+			return pstmt.executeUpdate();
+		}
+	}
+	
 	public int update (Connection con, int no, String content) throws SQLException {
 		final String sql ="UPDATE article_content SET content =? WHERE article_no = ?";
 		try(PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -30,7 +40,7 @@ public class ArticleContentDao {
 			rs = pstmt.executeQuery();
 			ArticleContent content = null;
 			if(rs.next()) {
-				content = new ArticleContent(rs.getInt(1), rs.getString(2));
+				content = new ArticleContent(rs.getInt(1), rs.getString(2),rs.getString(3));
 			}
 			return content;
 		}finally {
@@ -42,10 +52,11 @@ public class ArticleContentDao {
 	public ArticleContent insert(Connection con, ArticleContent content) throws SQLException {
 		PreparedStatement pstmt = null;
 		try {
-			final String sql ="INSERT INTO article_content (article_no, content) VALUES ( ?, ? )";
+			final String sql ="INSERT INTO article_content (article_no, content, file_name) VALUES ( ?, ?, ? )";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, content.getNumber());
 			pstmt.setString(2, content.getContent());
+			pstmt.setString(3, content.getFileName());
 			int insertCount = pstmt.executeUpdate();
 			if(insertCount > 0) {
 				return content;

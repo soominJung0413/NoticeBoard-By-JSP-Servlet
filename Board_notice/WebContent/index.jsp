@@ -37,6 +37,10 @@
 	<nav class="nav">
   	<a class="nav-link active" href="join.do">회원 가입</a>
   	<a class="nav-link" href="login.do">로그인</a>
+  	
+  	<div>
+  		<img src="/images/MariaDB.jpg" alt="이미지 깨짐" />
+  	</div>
 	</nav>
 	</ch:notLogin>
 	</div>

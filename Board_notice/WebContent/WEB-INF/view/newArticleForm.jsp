@@ -15,7 +15,7 @@
 <title>게시글 쓰기</title>
 </head>
 <body>
-	<form action="write.do" method="post">
+	<form action="write.do" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="title">제목</label>
 		 <input type="text" name="title" value="${param.title}" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp"/>
@@ -25,8 +25,12 @@
 		<br />
 		<div class="form-group">
 		<label for="content">내용</label>
-		  <textarea class="form-control" id="content" rows="3">${param.content}</textarea>
+		  <textarea class="form-control" id="content" rows="3" name="content">${param.content}</textarea>
 		</div>
+		<p>
+		파일: <br />
+		<input type="file" name="file1" accept="image/*" />
+		</p>
 		<input type="submit" class="btn btn-info" value="새 글 등록 :)" />
 	</div>
 	</form>

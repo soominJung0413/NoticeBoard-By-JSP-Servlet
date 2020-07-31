@@ -19,6 +19,7 @@ public class ReadArticleHandler implements CommandHandler{
 		String noVal = request.getParameter("no");
 		int articleNum =Integer.valueOf(noVal);
 		try {
+			//이 안에 다들어 있음.
 			ArticleData data = service.getArticle(articleNum, true);
 			request.setAttribute("articleData", data);
 			return "/WEB-INF/view/readArticle.jsp";

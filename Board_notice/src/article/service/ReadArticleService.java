@@ -21,6 +21,7 @@ public class ReadArticleService {
 				throw new ArticleNotFoundException();
 			}
 			ArticleContent content = articleContentDao.selectById(con, articleNum);
+			//여기서 넘버 추출. 파일 이름도 추출
 			if(content == null) {
 				throw new ArticleContentNotFoundException();
 			}

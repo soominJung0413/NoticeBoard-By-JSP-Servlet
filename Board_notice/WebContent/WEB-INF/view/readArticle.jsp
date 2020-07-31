@@ -33,9 +33,14 @@
   <td> ${articleData.article.writer.name }</td>
   </tr>
   <tr>
-  <th scope="row">
-  	<td style="white-space: pre-wrap;"><c:out value="${articleData.content.content }" /></td>
-  </th>
+  <th scope="row"/>
+  	<td style="white-space: pre-wrap;">
+  	<c:if test="${not empty articleData.content.fileName}">
+  		<img width="30%" src="/images/${articleData.content.number}/${articleData.content.fileName}" alt="이미지 깨짐" />
+  	</c:if>
+  	<c:out value="${articleData.content.content }" />
+
+  	</td>
   </tr>
   </tbody>
 </table>
